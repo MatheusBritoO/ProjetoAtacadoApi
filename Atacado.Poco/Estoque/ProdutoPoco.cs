@@ -2,14 +2,14 @@
 {
     public class ProdutoPoco
     {
-        public int Codigo { get; set; }
+        public int IdProduto { get; set; }
 
-        public int CodigoCategoria { get; set; }
+        public int IdCategoria { get; set; }
 
-        public int CodigoSubcategoria { get; set; }
+        public int IdSubcategoria { get; set; }
 
-        public string Descricao { get; set; }
+        public string DescricaoProduto { get; set; } = null!;
 
-        public bool Situacao { get; set; }
+        public bool? Situacao { get; set; }
     }
 }

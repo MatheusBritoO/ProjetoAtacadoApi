@@ -2,12 +2,12 @@
 {
     public class SubcategoriaPoco
     {
-        public int Codigo { get; set; }
+        public int IdSubcategoria { get; set; }
 
-        public int CodigoCategoria { get; set; }
+        public int IdCategoria { get; set; }
 
-        public string Descricao { get; set; }
+        public string DescricaoSubcategoria { get; set; } = null!;
 
-        public bool Situacao { get; set; }
+        public bool? Situacao { get; set; }
     }
 }

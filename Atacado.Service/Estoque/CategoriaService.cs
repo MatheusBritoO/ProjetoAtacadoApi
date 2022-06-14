@@ -1,28 +1,49 @@
 ﻿using Atacado.Poco.Estoque;
 using Atacado.EF.Database;
 using Atacado.Mapper.Estoque;
+using Atacado.Service.Ancestral;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Atacado.Dal.Estoque;
 
 namespace Atacado.Service.Estoque
 {
-    public class CategoriaService
+    public class CategoriaService : BaseAncestralService<CategoriaPoco>
     {
-        private CategoriaMapper map;
+        private CategoriaDao dao;
+        private CategoriaMapper mapConfig;
 
         public CategoriaService()
         {
-            this.map = new CategoriaMapper();
+            this.dao = new CategoriaDao();
+            this.mapConfig = new CategoriaMapper();
         }
 
-        public void Testar(CategoriaPoco poco)
+        public override List<CategoriaPoco> Listar()
         {
-            Categoria dom = new Categoria();
-            dom = this.map.Mapper.Map<Categoria>(poco);
+            List<Categoria> listDOM = this.dao.ReadAll();
+            List<CategoriaPoco> listPOCO = new List<CategoriaPoco>();
+            foreach(Categoria item in listDOM)
+            {
+                CategoriaPoco poco = this.mapConfig.Mapper.Map<CategoriaPoco>(item);
+                listPOCO.Add(poco);
+            }         
+            return listPOCO;
         }
+
+        public override CategoriaPoco Selecionar(int id)
+        {
+            Categoria dom = this.dao.Read(id);
+            CategoriaPoco poco = this.mapConfig.Mapper.Map<CategoriaPoco>(dom);
+            return poco;
+            
+           
+        }
+
+
     }
 }
