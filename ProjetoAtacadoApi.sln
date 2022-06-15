@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atacado.Dal", "Atacado.Dal\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atacado.Service", "Atacado.Service\Atacado.Service.csproj", "{2D212F74-BEE7-4414-AB77-CC0180C44218}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTeste", "ConsoleAppTeste\ConsoleAppTeste.csproj", "{5D0746F2-F855-4C5A-9563-2462EB89FF4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppTeste", "ConsoleAppTeste\ConsoleAppTeste.csproj", "{5D0746F2-F855-4C5A-9563-2462EB89FF4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtacadoApi", "AtacadoApi\AtacadoApi.csproj", "{681E3D00-0EBE-47C4-873D-1927C8170021}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{5D0746F2-F855-4C5A-9563-2462EB89FF4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D0746F2-F855-4C5A-9563-2462EB89FF4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D0746F2-F855-4C5A-9563-2462EB89FF4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{681E3D00-0EBE-47C4-873D-1927C8170021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{681E3D00-0EBE-47C4-873D-1927C8170021}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{681E3D00-0EBE-47C4-873D-1927C8170021}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{681E3D00-0EBE-47C4-873D-1927C8170021}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{BE3647F5-9DB7-4675-A7CC-40A592C78BFB} = {CD44C8A6-D2A7-463B-81B4-524CD1D75CD3}
 		{2D212F74-BEE7-4414-AB77-CC0180C44218} = {CB8AA68F-1F32-428E-B0E1-9F9DEC597192}
 		{5D0746F2-F855-4C5A-9563-2462EB89FF4A} = {312AB294-4055-4BD7-96C1-E1D161C03F9B}
+		{681E3D00-0EBE-47C4-873D-1927C8170021} = {312AB294-4055-4BD7-96C1-E1D161C03F9B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {603EA293-3B12-4FAD-8573-D085BE68DC8A}

@@ -10,16 +10,15 @@ namespace Atacado.Dal.Estoque
 {
     public class SubcategoriaDao : BaseAncestralDao<Subcategoria>
     {
-        private AtacadoContext contexto;
+      
 
         public SubcategoriaDao() : base()
-        {
-            this.contexto = new AtacadoContext();
-        }
+        { }
 
         public override Subcategoria Create(Subcategoria obj)
         {
             this.contexto.Subcategorias.Add(obj);
+            this.contexto.SaveChanges();
             return obj;
         }
 
@@ -40,6 +39,7 @@ namespace Atacado.Dal.Estoque
             alt.IdCategoria = obj.IdCategoria;
             alt.DescricaoSubcategoria = obj.DescricaoSubcategoria;
             alt.Situacao = obj.Situacao;
+            this.contexto.SaveChanges();
             return alt;
         }
 
@@ -47,6 +47,7 @@ namespace Atacado.Dal.Estoque
         {
             Subcategoria del = this.Read(id);
             this.contexto.Subcategorias.Remove(del);
+            this.contexto.SaveChanges();
             return del;
         }
 
