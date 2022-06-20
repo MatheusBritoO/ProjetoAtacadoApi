@@ -1,0 +1,39 @@
+{
+  "Empresas": [
+    {
+      "IdEmpresa": 50,
+      "CodigoEmpresa": 4146,
+      "DescricaoEmpresa": "Doritos",
+      "SiteEmpresa": "doritos.com",
+      "Situacao": true
+    },
+    {
+      "IdEmpresa": 70,
+      "CodigoEmpresa": 7328,
+      "DescricaoEmpresa": "m&m",
+      "SiteEmpresa": "m&m.com",
+      "Situacao": true
+    },
+    {
+      "IdEmpresa": 35,
+      "CodigoEmpresa": 3465,
+      "DescricaoEmpresa": "Nike",
+      "SiteEmpresa": "nike.com",
+      "Situacao": true
+    },
+    {
+      "IdEmpresa": 56,
+      "CodigoEmpresa": 6543,
+      "DescricaoEmpresa": "Umbro",
+      "SiteEmpresa": "umbro.com",
+      "Situacao": true
+    },
+    {
+      "IdEmpresa": 73,
+      "CodigoEmpresa": 3505,
+      "DescricaoEmpresa": "Adidas",
+      "SiteEmpresa": "adidas.com",
+      "Situacao": true
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Bancos>
+	<banco IdBanco="30">
+		<IdBanco>30</IdBanco>
+		<CodigoBanco>1234</CodigoBanco>
+		<DescricaoBanco>Banco do Brasil</DescricaoBanco>
+		<SiteBanco>bancodobrasil.com </SiteBanco>
+		<Situacao>true</Situacao>		
+	</banco>
+	<banco>
+		<IdBanco>51</IdBanco>
+		<CodigoBanco>7575 </CodigoBanco>
+		<DescricaoBanco>Santander</DescricaoBanco>
+		<SiteBanco>santander.com</SiteBanco>
+		<Situacao>true</Situacao>
+	</banco>
+	<banco>
+		<IdBanco>12</IdBanco>
+		<CodigoBanco>2442</CodigoBanco>
+		<DescricaoBanco>Itaú</DescricaoBanco>
+		<SiteBanco>itau.com</SiteBanco>
+		<Situacao>true</Situacao>
+	</banco>
+	<banco>
+		<IdBanco>10</IdBanco>
+		<CodigoBanco>6543</CodigoBanco>
+		<DescricaoBanco>Bmg</DescricaoBanco>
+		<SiteBanco>bmg.com</SiteBanco>
+		<Situacao>true</Situacao>
+	</banco>
+	<banco>
+		<IdBanco>32</IdBanco>
+		<CodigoBanco>7082</CodigoBanco>
+		<DescricaoBanco>Bradesco</DescricaoBanco>
+		<SiteBanco>bradesco.com</SiteBanco>
+		<Situacao>true</Situacao>
+		</banco>
+</Bancos>	

@@ -18,5 +18,25 @@ namespace Atacado.Service.Ancestral
             throw new NotImplementedException();
         }
     
+        
+        public virtual TPoco Criar(TPoco obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual TPoco Atualizar(TPoco obj)
+        {
+            throw new NotImplementedException();
+        }
+    
+        public virtual TPoco Excluir (TPoco obj)
+        {
+            throw new NotImplementedException();
+        }
+        public virtual TPoco Excluir(int id)
+        {
+            throw new NotImplementedException();
+        }
+    
     }
 }

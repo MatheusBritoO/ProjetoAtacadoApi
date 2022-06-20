@@ -11,18 +11,46 @@ namespace AtacadoApi.Controllers
     {
         private CategoriaService servico;
 
+
+        public CategoriaController() : base()
+        {
+            this.servico = new CategoriaService();
+        }
+
         [HttpGet]
         public List<CategoriaPoco> GetAll()
-        {
-            this.servico = new CategoriaService();
+        {           
             return this.servico.Listar();
         }
-    
+
         [HttpGet("{id:int}")]
         public CategoriaPoco GetByID(int id)
-        {
-            this.servico = new CategoriaService();
+        {          
             return this.servico.Selecionar(id);
+        }
+
+        [HttpPost]
+        public CategoriaPoco Post([FromBody] CategoriaPoco poco)
+        {          
+            return this.servico.Criar(poco);
+        }
+
+        [HttpPut]
+        public CategoriaPoco Put([FromBody] CategoriaPoco poco)
+        {         
+            return this.servico.Atualizar(poco);
+        }
+
+        [HttpDelete]
+        public CategoriaPoco Delete([FromBody] CategoriaPoco poco)
+        {           
+            return this.servico.Excluir(poco);
+        }
+
+        [HttpDelete("{id:int}")]
+        public CategoriaPoco Delete(int id)
+        {         
+            return this.servico.Excluir(id);
         }
     }
 }

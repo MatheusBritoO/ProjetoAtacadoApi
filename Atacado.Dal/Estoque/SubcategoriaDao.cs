@@ -33,6 +33,11 @@ namespace Atacado.Dal.Estoque
             return this.contexto.Subcategorias.ToList();
         }
 
+        public List<Subcategoria> ReadAll(int skip, int take)
+        {
+            return this.contexto.Subcategorias.Skip(skip).Take(take).ToList();
+        }      
+        
         public override Subcategoria Update(Subcategoria obj)
         {
             Subcategoria alt = this.Read(obj.IdSubcategoria);

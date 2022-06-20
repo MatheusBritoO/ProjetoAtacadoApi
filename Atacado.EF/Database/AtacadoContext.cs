@@ -357,7 +357,7 @@ namespace Atacado.EF.Database
                 entity.Property(e => e.Situacao).HasDefaultValueSql("((1))");
 
                 entity.HasOne(d => d.IdCategoriaNavigation)
-                    .WithMany(p => p.Subcategoria)
+                    .WithMany(p => p.Subcategorias)
                     .HasForeignKey(d => d.IdCategoria)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Subcategoria_Categoria");

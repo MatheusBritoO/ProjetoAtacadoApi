@@ -39,11 +39,35 @@ namespace Atacado.Service.Estoque
         {
             Categoria dom = this.dao.Read(id);
             CategoriaPoco poco = this.mapConfig.Mapper.Map<CategoriaPoco>(dom);
-            return poco;
-            
-           
+            return poco;                     
         }
 
+        public override CategoriaPoco Criar(CategoriaPoco obj)
+        {
+            Categoria dom = this.mapConfig.Mapper.Map<Categoria>(obj);
+            Categoria criado = this.dao.Create(dom);
+            CategoriaPoco poco = this.mapConfig.Mapper.Map<CategoriaPoco>(criado);
+            return poco;
+        }
+
+        public override CategoriaPoco Atualizar(CategoriaPoco obj)
+        {
+            Categoria dom = this.mapConfig.Mapper.Map<Categoria>(obj);
+            Categoria atualizado = this.dao.Update(dom);
+            CategoriaPoco poco = this.mapConfig.Mapper.Map<CategoriaPoco>(atualizado);
+            return poco;
+        }
+
+        public override CategoriaPoco Excluir(CategoriaPoco obj)
+        {
+            return this.Excluir(obj.Codigo);
+        }
+        public override CategoriaPoco Excluir(int id)
+        {
+           Categoria excluido = this.dao.Delete(id);
+            CategoriaPoco poco = this.mapConfig.Mapper.Map<CategoriaPoco>(excluido);
+            return poco;
+        }
 
     }
 }
