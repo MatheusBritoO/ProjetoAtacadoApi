@@ -10,7 +10,7 @@ namespace Atacado.EF.Database
     {
         public Categoria()
         {
-            Subcategorias = new HashSet<Subcategoria>();
+            Subcategoria = new HashSet<Subcategoria>();
         }
 
         [Key]
@@ -28,6 +28,6 @@ namespace Atacado.EF.Database
         public DateTime? DataExclusao { get; set; }
 
         [InverseProperty("IdCategoriaNavigation")]
-        public virtual ICollection<Subcategoria> Subcategorias { get; set; }
+        public virtual ICollection<Subcategoria> Subcategoria { get; set; }
     }
 }

@@ -111,14 +111,26 @@ namespace Atacado.EF.Database
                 entity.Property(e => e.Situacao).HasDefaultValueSql("((1))");
             });
 
+
+            //Para permitir renomear as tabelas de maneira adequada em PT-BR, Singular ou Plural,
+            //use o seguinte código:
+            //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+            //{
+            //    //Changing Database table name to Metadata
+            //    modelBuilder.Entity<Metadata1>().ToTable("Metadata2"); // <--------------------
+            //}
+            //Onde
+            //- Metadata1 - nome da classe no programa (geralmente no singular).
+            //- Metadata2 - nome da tabela do banco.
             modelBuilder.Entity<Categoria>().ToTable("Categoria");
+
 
             modelBuilder.Entity<Cliente>(entity =>
             {
                 entity.Property(e => e.DataInclusao).HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.Situacao).HasDefaultValueSql("((1))");
-            });      
+            });
 
             modelBuilder.Entity<Curso>(entity =>
             {
@@ -357,7 +369,7 @@ namespace Atacado.EF.Database
                 entity.Property(e => e.Situacao).HasDefaultValueSql("((1))");
 
                 entity.HasOne(d => d.IdCategoriaNavigation)
-                    .WithMany(p => p.Subcategorias)
+                    .WithMany(p => p.Subcategoria)
                     .HasForeignKey(d => d.IdCategoria)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Subcategoria_Categoria");

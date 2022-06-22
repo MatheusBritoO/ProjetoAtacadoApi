@@ -16,12 +16,16 @@ namespace Atacado.EF.Database
         [Key]
         [Column("ID_Subcategoria")]
         public int IdSubcategoria { get; set; }
+        
         [Column("ID_Categoria")]
         public int IdCategoria { get; set; }
+        
         [Column("Descricao_Subcategoria")]
         [Unicode(false)]
         public string DescricaoSubcategoria { get; set; } = null!;
+        
         public bool? Situacao { get; set; }
+        
         [Column(TypeName = "datetime")]
         public DateTime? DataInclusao { get; set; }
         [Column(TypeName = "datetime")]
