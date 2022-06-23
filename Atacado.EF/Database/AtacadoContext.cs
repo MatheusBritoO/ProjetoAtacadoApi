@@ -47,6 +47,17 @@ namespace Atacado.EF.Database
         public virtual DbSet<VwExibirProdutosComDetalhe> VwExibirProdutosComDetalhes { get; set; } = null!;
         public virtual DbSet<VwFuncionariosAtivosInformacao> VwFuncionariosAtivosInformacaos { get; set; } = null!;
 
+        
+        
+        /// <summary>
+        /// Adicionado Pelo Programador.
+        /// </summary>
+        public virtual DbSet<TipoRebanho> TipoRebanhos { get; set; } = null!;
+
+      
+        
+        
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -419,6 +430,21 @@ namespace Atacado.EF.Database
 
                 entity.Property(e => e.SexoFuncionario).IsFixedLength();
             });
+
+            //
+            //
+            //
+            modelBuilder.Entity<TipoRebanho>(entity =>
+            {
+                entity.Property(e => e.DataInclusao).HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Situacao).HasDefaultValueSql("((1))");
+            });
+
+            modelBuilder.Entity<TipoRebanho>().ToTable("Tipo_Rebanho");
+            //
+            //
+            //
 
             OnModelCreatingPartial(modelBuilder);
         }
