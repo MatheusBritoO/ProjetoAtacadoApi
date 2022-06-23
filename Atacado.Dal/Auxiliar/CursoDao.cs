@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Atacado.Dal.Auxiliar
 {
-    internal class CursoDao : BaseAncestralDao<Curso>
+    public class CursoDao : BaseAncestralDao<Curso>
     {
         public override Curso Create(Curso obj)
         {

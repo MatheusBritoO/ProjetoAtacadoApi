@@ -9,15 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Atacado.Service.Auxiliar
-{
-    public class AreaConhecimentoService
-    {
-        public class CategoriaService : BaseAncestralService<AreaConhecimentoPoco>
+{  
+        public class AreaConhecimentoService : BaseAncestralService<AreaConhecimentoPoco>
         {
             private AreaConhecimentoDao dao;
             private AreaConhecimentoMapper mapConfig;
 
-            public CategoriaService()
+            public AreaConhecimentoService()
             {
                 this.dao = new AreaConhecimentoDao();
                 this.mapConfig = new AreaConhecimentoMapper();
@@ -70,4 +68,4 @@ namespace Atacado.Service.Auxiliar
             }
         }
     } 
-}
+
