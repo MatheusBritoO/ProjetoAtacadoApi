@@ -54,6 +54,8 @@ namespace Atacado.EF.Database
         /// </summary>
         public virtual DbSet<TipoRebanho> TipoRebanhos { get; set; } = null!;
 
+        public virtual DbSet<Rebanho> Rebanhos { get; set; } = null!;
+
       
         
         
@@ -445,6 +447,18 @@ namespace Atacado.EF.Database
             //
             //
             //
+            modelBuilder.Entity<Rebanho>(entity =>
+            {
+                entity.Property(e => e.DataInclusao).HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Situacao).HasDefaultValueSql("((1))");
+            });
+
+            modelBuilder.Entity<Rebanho>().ToTable("Rebanho");
+            //
+            //
+            //
+
 
             OnModelCreatingPartial(modelBuilder);
         }

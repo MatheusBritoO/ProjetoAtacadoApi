@@ -9,27 +9,39 @@ using System.Threading.Tasks;
 
 namespace Atacado.EF.Database
 {
-    [Table("Tipo_Rebanho")]
-    public partial class TipoRebanho
+    [Table("Rebanho")]
+    public partial class Rebanho
     {
         [Key]
-        [Column("ID_Tipo")]
-        public int IdTipo { get; set; }
+        [Column("ID_Rebanho")]
+        public int IdRebanho { get; set; }
 
-        [Column("Descricao")]
+        [Column("Ano_Ref")]       
+        public int AnoRef { get; set; }
+
+        [Column("ID_Municipio")]
+        public int IdMunicipio { get; set; }
+
+        [Column("ID_Tipo_Rebanho")]
+       public int IdTipoRebanho { get; set; }
+
+        [Column("Tipo_Rebanho")]
         [Unicode(false)]
-        public string Descricao { get; set; }
+        public string TipoRebanho { get; set; }
 
+        [Column("Quantidade")]
+        public int? Quantidade { get; set; }
+
+       
         public bool? Situacao { get; set; }
 
         [Column(TypeName = "datetime")]
         public DateTime? DataInclusao { get; set; }
         [Column(TypeName = "datetime")]
-       
+
         public DateTime? DataAlteracao { get; set; }
         [Column(TypeName = "datetime")]
-       
-        public DateTime? DataExclusao { get; set; }
 
+        public DateTime? DataExclusao { get; set; }
     }
 }
