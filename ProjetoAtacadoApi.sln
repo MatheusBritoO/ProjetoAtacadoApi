@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtacadoApi", "AtacadoApi\At
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9 - Documentos", "9 - Documentos", "{864345E4-A29D-44E3-96D1-A1AFD4FE6885}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atacado.Repository", "Atacado.Repository\Atacado.Repository.csproj", "{AE65FE2A-5E84-4476-AF85-9739462C3AD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{681E3D00-0EBE-47C4-873D-1927C8170021}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{681E3D00-0EBE-47C4-873D-1927C8170021}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{681E3D00-0EBE-47C4-873D-1927C8170021}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE65FE2A-5E84-4476-AF85-9739462C3AD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE65FE2A-5E84-4476-AF85-9739462C3AD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE65FE2A-5E84-4476-AF85-9739462C3AD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE65FE2A-5E84-4476-AF85-9739462C3AD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +79,7 @@ Global
 		{2D212F74-BEE7-4414-AB77-CC0180C44218} = {CB8AA68F-1F32-428E-B0E1-9F9DEC597192}
 		{5D0746F2-F855-4C5A-9563-2462EB89FF4A} = {312AB294-4055-4BD7-96C1-E1D161C03F9B}
 		{681E3D00-0EBE-47C4-873D-1927C8170021} = {312AB294-4055-4BD7-96C1-E1D161C03F9B}
+		{AE65FE2A-5E84-4476-AF85-9739462C3AD8} = {CD44C8A6-D2A7-463B-81B4-524CD1D75CD3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {603EA293-3B12-4FAD-8573-D085BE68DC8A}

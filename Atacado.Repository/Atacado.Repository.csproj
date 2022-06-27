@@ -7,12 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="IBGE\" />
-    <Folder Include="RH\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">
@@ -22,11 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Atacado.Dal\Atacado.Dal.csproj" />
     <ProjectReference Include="..\Atacado.EF\Atacado.EF.csproj" />
-    <ProjectReference Include="..\Atacado.Mapper\Atacado.Mapper.csproj" />
-    <ProjectReference Include="..\Atacado.Poco\Atacado.Poco.csproj" />
-    <ProjectReference Include="..\Atacado.Repository\Atacado.Repository.csproj" />
   </ItemGroup>
 
 </Project>

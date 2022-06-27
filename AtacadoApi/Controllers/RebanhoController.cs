@@ -33,6 +33,5 @@ namespace AtacadoApi.Controllers
         {
             return this.servico.FiltrarPorAnoRefIdMun(anoRef, idMun);
         }
-
     }
 }

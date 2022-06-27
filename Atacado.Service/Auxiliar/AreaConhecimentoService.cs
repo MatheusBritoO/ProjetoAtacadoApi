@@ -1,6 +1,7 @@
 ﻿using Atacado.Dal.Auxiliar;
 using Atacado.EF.Database;
 using Atacado.Mapper.Auxiliar;
+using Atacado.Repository.Auxiliar;
 using Atacado.Service.Ancestral;
 using System;
 using System.Collections.Generic;
@@ -10,32 +11,33 @@ using System.Threading.Tasks;
 
 namespace Atacado.Service.Auxiliar
 {  
-        public class AreaConhecimentoService : BaseAncestralService<AreaConhecimentoPoco>
+        public class AreaConhecimentoService : BaseAncestralService<AreaConhecimentoPoco, AreaConhecimento>
         {
-            private AreaConhecimentoDao dao;
+            private AreaConhecimentoRepository repositorio;
             private AreaConhecimentoMapper mapConfig;
 
             public AreaConhecimentoService()
             {
-                this.dao = new AreaConhecimentoDao();
+                this.repositorio = new AreaConhecimentoRepository(new AtacadoContext());
                 this.mapConfig = new AreaConhecimentoMapper();
             }
 
             public override List<AreaConhecimentoPoco> Listar()
             {
-                List<AreaConhecimento> listDOM = this.dao.ReadAll();
-                List<AreaConhecimentoPoco> listPOCO = new List<AreaConhecimentoPoco>();
-                foreach (AreaConhecimento item in listDOM)
-                {
-                    AreaConhecimentoPoco poco = this.mapConfig.Mapper.Map<AreaConhecimentoPoco>(item);
-                    listPOCO.Add(poco);
-                }
-                return listPOCO;
+            List<AreaConhecimento> listDOM = this.repositorio.Read().ToList();
+            return this.ProcessarListaDOM(listDOM);
+            }
+           
+            public List<AreaConhecimentoPoco> Listar(int pular, int exibir)
+            {
+            List<AreaConhecimento> listDOM = this.repositorio.Read(pular, exibir).ToList();
+            return ProcessarListaDOM(listDOM);
             }
 
-            public override AreaConhecimentoPoco Selecionar(int id)
+
+        public override AreaConhecimentoPoco Selecionar(int id)
             {
-                AreaConhecimento dom = this.dao.Read(id);
+                AreaConhecimento dom = this.repositorio.Read(id);
                 AreaConhecimentoPoco poco = this.mapConfig.Mapper.Map<AreaConhecimentoPoco>(dom);
                 return poco;
             }
@@ -43,7 +45,7 @@ namespace Atacado.Service.Auxiliar
             public override AreaConhecimentoPoco Criar(AreaConhecimentoPoco obj)
             {
                 AreaConhecimento dom = this.mapConfig.Mapper.Map<AreaConhecimento>(obj);
-                AreaConhecimento criado = this.dao.Create(dom);
+                AreaConhecimento criado = this.repositorio.Add(dom);
                 AreaConhecimentoPoco poco = this.mapConfig.Mapper.Map<AreaConhecimentoPoco>(criado);
                 return poco;
             }
@@ -51,7 +53,7 @@ namespace Atacado.Service.Auxiliar
             public override AreaConhecimentoPoco Atualizar(AreaConhecimentoPoco obj)
             {
                 AreaConhecimento dom = this.mapConfig.Mapper.Map<AreaConhecimento>(obj);
-                AreaConhecimento atualizado = this.dao.Update(dom);
+                AreaConhecimento atualizado = this.repositorio.Edit(dom);
                 AreaConhecimentoPoco poco = this.mapConfig.Mapper.Map<AreaConhecimentoPoco>(atualizado);
                 return poco;
             }
@@ -62,7 +64,7 @@ namespace Atacado.Service.Auxiliar
             }
             public override AreaConhecimentoPoco Excluir(int id)
             {
-                AreaConhecimento excluido = this.dao.Delete(id);
+                AreaConhecimento excluido = this.repositorio.DeleteById(id);
                 AreaConhecimentoPoco poco = this.mapConfig.Mapper.Map<AreaConhecimentoPoco>(excluido);
                 return poco;
             }
