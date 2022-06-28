@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="IBGE\" />
-    <Folder Include="RH\" />
+    <Compile Remove="IBGE\**" />
+    <EmbeddedResource Remove="IBGE\**" />
+    <None Remove="IBGE\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +25,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Atacado.EF\Atacado.EF.csproj" />
     <ProjectReference Include="..\Atacado.Poco\Atacado.Poco.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="RH\" />
   </ItemGroup>
 
 </Project>

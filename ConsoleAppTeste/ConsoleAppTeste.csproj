@@ -18,7 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Atacado.Dal\Atacado.Dal.csproj" />
     <ProjectReference Include="..\Atacado.EF\Atacado.EF.csproj" />
     <ProjectReference Include="..\Atacado.Mapper\Atacado.Mapper.csproj" />
     <ProjectReference Include="..\Atacado.Poco\Atacado.Poco.csproj" />

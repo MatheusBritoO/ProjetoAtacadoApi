@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="IBGE\" />
-    <Folder Include="RH\" />
+    <Compile Remove="IBGE\**" />
+    <EmbeddedResource Remove="IBGE\**" />
+    <None Remove="IBGE\**" />
   </ItemGroup>
 
 </Project>

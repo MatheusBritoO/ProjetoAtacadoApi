@@ -45,7 +45,7 @@ namespace Atacado.Repository.Ancestral
 
         public IEnumerable<TEntity> Read(int skip = 0, int take = 0)
         {
-            if (skip == 0)
+            if ((skip == 0) && (take == 0))
             {
                 return this.context.Set<TEntity>().AsEnumerable();
             }

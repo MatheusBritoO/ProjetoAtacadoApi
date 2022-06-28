@@ -1,5 +1,4 @@
-﻿using Atacado.Dal.Estoque;
-using Atacado.EF.Database;
+﻿using Atacado.EF.Database;
 using Atacado.Mapper.Estoque;
 using Atacado.Poco.Estoque;
 using Atacado.Repository.Estoque;
