@@ -1,5 +1,6 @@
 ﻿using Atacado.Dal.Auxiliar;
 using Atacado.EF.Database;
+using Atacado.Mapper.Ancestral;
 using Atacado.Mapper.Auxiliar;
 using Atacado.Repository.Auxiliar;
 using Atacado.Service.Ancestral;
@@ -14,12 +15,12 @@ namespace Atacado.Service.Auxiliar
     public class IdiomaService : BaseAncestralService<IdiomaPoco, Idioma>
     {
         private IdiomaRepository repositorio;
-        private IdiomaMapper mapConfig;
+        
 
         public IdiomaService()
         {
             this.repositorio = new IdiomaRepository(new AtacadoContext());
-            this.mapConfig = new IdiomaMapper();
+            this.mapeador = new MapeadorGenerico<IdiomaPoco, Idioma>();
         }
 
         public override List<IdiomaPoco> Listar()
@@ -31,23 +32,23 @@ namespace Atacado.Service.Auxiliar
         public override IdiomaPoco Selecionar(int id)
         {
             Idioma dom = this.repositorio.Read(id);
-            IdiomaPoco poco = this.mapConfig.Mapper.Map<IdiomaPoco>(dom);
+            IdiomaPoco poco = this.mapeador.Mecanismo.Map<IdiomaPoco>(dom);
             return poco;
         }
 
         public override IdiomaPoco Criar(IdiomaPoco obj)
         {
-            Idioma dom = this.mapConfig.Mapper.Map<Idioma>(obj);
+            Idioma dom = this.mapeador.Mecanismo.Map<Idioma>(obj);
             Idioma criado = this.repositorio.Add(dom);
-            IdiomaPoco poco = this.mapConfig.Mapper.Map<IdiomaPoco>(criado);
+            IdiomaPoco poco = this.mapeador.Mecanismo.Map<IdiomaPoco>(criado);
             return poco;
         }
 
         public override IdiomaPoco Atualizar(IdiomaPoco obj)
         {
-            Idioma dom = this.mapConfig.Mapper.Map<Idioma>(obj);
+            Idioma dom = this.mapeador.Mecanismo.Map<Idioma>(obj);
             Idioma atualizado = this.repositorio.Edit(dom);
-            IdiomaPoco poco = this.mapConfig.Mapper.Map<IdiomaPoco>(atualizado);
+            IdiomaPoco poco = this.mapeador.Mecanismo.Map<IdiomaPoco>(atualizado);
             return poco;
         }
 
@@ -58,7 +59,7 @@ namespace Atacado.Service.Auxiliar
         public override IdiomaPoco Excluir(int id)
         {
             Idioma excluido = this.repositorio.DeleteById(id);
-            IdiomaPoco poco = this.mapConfig.Mapper.Map<IdiomaPoco>(excluido);
+            IdiomaPoco poco = this.mapeador.Mecanismo.Map<IdiomaPoco>(excluido);
             return poco;
         }
     }

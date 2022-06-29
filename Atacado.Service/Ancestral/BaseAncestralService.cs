@@ -23,7 +23,6 @@ namespace Atacado.Service.Ancestral
         {
             throw new NotImplementedException();
         }
-    
         
         public virtual TPoco Criar(TPoco obj)
         {

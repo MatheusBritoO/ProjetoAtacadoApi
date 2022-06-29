@@ -58,6 +58,10 @@ namespace Atacado.EF.Database
 
         public virtual DbSet<Funcionario> Funcionarios { get; set; } = null!;
 
+        public virtual DbSet<Empresa> Empresas { get; set; } = null!;
+
+
+
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -467,7 +471,9 @@ namespace Atacado.EF.Database
 
             modelBuilder.Entity<Funcionario>().ToTable("Funcionario");
 
-            
+            modelBuilder.Entity<Funcionario>().ToTable("Empresa");
+
+
             OnModelCreatingPartial(modelBuilder);
         }
 

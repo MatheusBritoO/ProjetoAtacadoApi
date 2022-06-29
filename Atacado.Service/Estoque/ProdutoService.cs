@@ -1,4 +1,5 @@
 ﻿using Atacado.EF.Database;
+using Atacado.Mapper.Ancestral;
 using Atacado.Mapper.Estoque;
 using Atacado.Poco.Estoque;
 using Atacado.Repository.Estoque;
@@ -14,12 +15,12 @@ namespace Atacado.Service.Estoque
     public class ProdutoService : BaseAncestralService<ProdutoPoco, Produto>
     {
         private ProdutoRepository repositorio;
-        private ProdutoMapper mapConfig;
+        
 
         public ProdutoService()
         {
             this.repositorio = new ProdutoRepository(new AtacadoContext());
-            this.mapConfig = new ProdutoMapper();
+            this.mapeador = new MapeadorGenerico<ProdutoPoco, Produto>();
         }
 
        
@@ -32,29 +33,29 @@ namespace Atacado.Service.Estoque
 
         protected override List<ProdutoPoco> ProcessarListaDOM(List<Produto> listDOM)
         {
-            return listDOM.Select(dom => this.mapConfig.Mapper.Map<ProdutoPoco>(dom)).ToList();
+            return listDOM.Select(dom => this.mapeador.Mecanismo.Map<ProdutoPoco>(dom)).ToList();
         }
 
         public override ProdutoPoco Selecionar(int id)
         {
             Produto dom = this.repositorio.Read(id);
-            ProdutoPoco poco = this.mapConfig.Mapper.Map<ProdutoPoco>(dom);
+            ProdutoPoco poco = this.mapeador.Mecanismo.Map<ProdutoPoco>(dom);
             return poco;
         }
 
         public override ProdutoPoco Criar(ProdutoPoco obj)
         {
-            Produto dom = this.mapConfig.Mapper.Map<Produto>(obj);
+            Produto dom = this.mapeador.Mecanismo.Map<Produto>(obj);
             Produto criado = this.repositorio.Add(dom);
-            ProdutoPoco poco = this.mapConfig.Mapper.Map<ProdutoPoco>(criado);
+            ProdutoPoco poco = this.mapeador.Mecanismo.Map<ProdutoPoco>(criado);
             return poco;
         }
 
         public override ProdutoPoco Atualizar(ProdutoPoco obj)
         {
-            Produto dom = this.mapConfig.Mapper.Map<Produto>(obj);
+            Produto dom = this.mapeador.Mecanismo.Map<Produto>(obj);
             Produto atualizado = this.repositorio.Edit(dom);
-            ProdutoPoco poco = this.mapConfig.Mapper.Map<ProdutoPoco>(atualizado);
+            ProdutoPoco poco = this.mapeador.Mecanismo.Map<ProdutoPoco>(atualizado);
             return poco;
         }
 
@@ -65,7 +66,7 @@ namespace Atacado.Service.Estoque
         public override ProdutoPoco Excluir(int id)
         {
             Produto excluido = this.repositorio.DeleteById(id);
-            ProdutoPoco poco = this.mapConfig.Mapper.Map<ProdutoPoco>(excluido);
+            ProdutoPoco poco = this.mapeador.Mecanismo.Map<ProdutoPoco>(excluido);
             return poco;
         }
 
