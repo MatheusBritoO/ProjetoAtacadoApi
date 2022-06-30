@@ -13,6 +13,14 @@ namespace Atacado.Service.Ancestral
    
     {
         protected MapeadorGenerico<TPoco, TDom> mapeador;
+        protected List<string> mensagensProcessamentos;
+        
+        public List<string> MensagensProcessamentos => this.mensagensProcessamentos;
+
+        public BaseAncestralService()
+        {
+            this.mensagensProcessamentos = new List<string>();
+        }
     
         public virtual List<TPoco> Listar()
         {

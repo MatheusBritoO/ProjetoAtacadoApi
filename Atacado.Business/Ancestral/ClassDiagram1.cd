@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Atacado.Business.Ancestral.RuleAncestor&lt;TPoco&gt;">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAABAAAAgAAAA=</HashCode>
+      <FileName>Ancestral\RuleAncestor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Atacado.Business.Ancestral.IRule">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Ancestral\IRule.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

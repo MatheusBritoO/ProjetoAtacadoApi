@@ -1,24 +1,24 @@
-﻿using Atacado.EF.Database;
+﻿using Atacado.Business.RH;
+using Atacado.EF.Database;
 using Atacado.Mapper.Ancestral;
 using Atacado.Poco.RH;
 using Atacado.Repository.RH;
 using Atacado.Service.Ancestral;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Atacado.Service.RH
 {
     public  class FuncionarioService : BaseAncestralService<FuncionarioPoco, Funcionario>
     {
         private FuncionarioRepository repositorio;
+        private FuncionarioRegra regra;
+
 
         public FuncionarioService() : base()
         {
             this.mapeador = new MapeadorGenerico<FuncionarioPoco, Funcionario>();
             this.repositorio = new FuncionarioRepository(new AtacadoContext());
+            this.regra = new FuncionarioRegra();
         }
 
         public List<FuncionarioPoco> Listar(int pular , int exibir)
@@ -34,18 +34,36 @@ namespace Atacado.Service.RH
 
         public override FuncionarioPoco Atualizar(FuncionarioPoco obj)
         {
-            Funcionario temp = this.mapeador.Mecanismo.Map<Funcionario>(obj);
+            this.regra.Poco = obj;
+            if (this.regra.Process() == false)
+            {
+                this.mensagensProcessamentos.AddRange(this.regra.RuleMessages);
+                return null;
+            }
+            else
+            {
+                Funcionario temp = this.mapeador.Mecanismo.Map<Funcionario>(obj);
             Funcionario editado = this.repositorio.Edit(temp);
             FuncionarioPoco poco = this.mapeador.Mecanismo.Map<FuncionarioPoco>(editado);
             return poco;
+            }
         }
 
         public override FuncionarioPoco Criar(FuncionarioPoco obj)
         {
+            this.regra.Poco = obj;
+            if (this.regra.Process() == false)
+            {
+                this.mensagensProcessamentos.AddRange(this.regra.RuleMessages);
+                return null;
+            }
+            else 
+            { 
             Funcionario temp = this.mapeador.Mecanismo.Map<Funcionario>(obj);
             Funcionario criado = this.repositorio.Add(temp);
             FuncionarioPoco poco = this.mapeador.Mecanismo.Map<FuncionarioPoco>(criado);
             return poco;
+            }
         }
 
         public override FuncionarioPoco Excluir(FuncionarioPoco obj)
