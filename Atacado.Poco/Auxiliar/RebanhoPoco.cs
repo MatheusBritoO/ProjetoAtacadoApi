@@ -12,7 +12,7 @@ namespace Atacado.Poco.Auxiliar
 
         public int AnoRef { get; set; }
 
-        public bool? IdMunicipio { get; set; }
+        public int IdMunicipio { get; set; }
 
         public int IdTipoRebanho { get; set; }
 

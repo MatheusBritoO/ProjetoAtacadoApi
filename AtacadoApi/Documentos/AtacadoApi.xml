@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AtacadoApi</name>
+    </assembly>
+    <members>
+        <member name="T:AtacadoApi.Controllers.FuncionarioController">
+            <summary>
+            Recurso Funcionário.
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.FuncionarioController.#ctor">
+            <summary>
+            Construtor da classe.
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.FuncionarioController.Get(System.Int32,System.Int32)">
+            <summary>
+            Reazlida a busca por todos os registros filtrando onde inicia(skip) e a quantidade(take).
+            </summary>
+            <param name="skip">Onde inicia os resultados da pesquisa.</param>
+            <param name="take">Quantos registros serão retornados.</param>
+            <returns>Coleção de dados.</returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.FuncionarioController.GetByID(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.FuncionarioController.GetPorMatricula(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="mat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.FuncionarioController.Post(Atacado.Poco.RH.FuncionarioPoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.FuncionarioController.Put(Atacado.Poco.RH.FuncionarioPoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.FuncionarioController.Delete(Atacado.Poco.RH.FuncionarioPoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.FuncionarioController.Delete(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AtacadoApi.Controllers.RebanhoController">
+            <summary>
+            Recurso Rebanho.
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.RebanhoController.#ctor">
+            <summary>
+            Construtor da classe.
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.RebanhoController.Get(System.Int32,System.Int32)">
+            <summary>
+            Reazlida a busca por todos os registros filtrando onde inicia(skip) e a quantidade(take).
+            </summary>
+            <param name="skip">Onde inicia os resultados da pesquisa.</param>
+            <param name="take">Quantos registros serão retornados.</param>
+            <returns>Coleção de dados.</returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.RebanhoController.Post(Atacado.Poco.Auxiliar.RebanhoPoco)">
+            <summary>
+            Adiciona um novo Objeto.
+            </summary>
+            <param name="poco">O Objeto criado.</param>
+            <returns>O Objeto salvo no banco de dados.</returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.RebanhoController.Put(Atacado.Poco.Auxiliar.RebanhoPoco)">
+            <summary>
+            Alterar ou Atualizar um Objeto.
+            </summary>
+            <param name="poco">Objeto que será alterado ou atualizado.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.RebanhoController.Delete(Atacado.Poco.Auxiliar.RebanhoPoco)">
+            <summary>
+            Deleta um objeto da tabela.
+            </summary>
+            <param name="poco">Dado a ser deletado.</param>
+            <returns>Objeto será totalmente deletado do banco de dados.</returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.RebanhoController.Delete(System.Int32)">
+            <summary>
+            Objeto será deletado pelo seu ID.
+            </summary>
+            <param name="id">ID do Objeto que será deletado.</param>
+            <returns>Objeto deletado do banco de dados.</returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.RebanhoController.GetByID(System.Int32)">
+            <summary>
+            Busca de Objeto pelo seu ID.
+            </summary>
+            <param name="id">ID</param>
+            <returns>Objeto pesquisado pelo ID.</returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.RebanhoController.GetPorAnoRefIdMun(System.Int32,System.Int32)">
+            <summary>
+            Busca de Objeto Por Ano Referencia e ID de Municipio.
+            </summary>
+            <param name="anoRef">Ano Referencia a ser pesquisado</param>
+            <param name="idMun">ID municipio a ser pesquisado</param>
+            <returns>Coleção de dados.</returns>
+        </member>
+    </members>
+</doc>
