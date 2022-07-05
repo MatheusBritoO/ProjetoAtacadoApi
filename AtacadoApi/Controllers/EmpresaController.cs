@@ -1,4 +1,5 @@
-﻿using Atacado.Poco.RH;
+﻿using Atacado.Envelope.RH;
+using Atacado.Poco.RH;
 using Atacado.Service.RH;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,46 +17,144 @@ namespace AtacadoApi.Controllers
             this.servico = new EmpresaService();
         }
 
+        /// <summary>
+        /// Realiza a busca por todos os registros filtrando onde inicia(skip) e a quantidade(take).
+        /// </summary>
+        /// <param name="skip">Onde inicia os resultados da pesquisa.</param>
+        /// <param name="take">Quantos registros serão retornados.</param>
+        /// <returns>Coleção de dados.</returns>
         [HttpGet]
-        public List<EmpresaPoco> GetAll()
+        public ActionResult<List<EmpresaEnvelopeJSON>> GetAll(int skip, int take)
         {
-            return this.servico.Listar();
+            try
+            {
+               List<EmpresaEnvelopeJSON> lista = this.servico.Listar(skip, take);
+                return Ok(lista);
+               
+            }
+            catch (Exception ex)
+            {
+
+                return Problem(detail: ex.Message, statusCode: StatusCodes.Status500InternalServerError);
+            }
         }
 
+        /// <summary>
+        /// Realiza a busca por todos os registros filtrando onde inicia(skip) e a quantidade(take).
+        /// </summary>
+        /// <param name="skip"></param>
+        /// <param name="take"></param>
+        /// <returns></returns>
         [HttpGet("{skip:int}/{take:int}")]
-        public List<EmpresaPoco> Get(int skip, int take)
+        public ActionResult<List<EmpresaEnvelopeJSON>> Get(int skip, int take)
         {
             return this.servico.Listar(skip, take);
         }
 
+
+        /// <summary>
+        /// Realiza a busca por ID.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id:int}")]
-        public EmpresaPoco GetByID(int id)
+        public ActionResult<EmpresaEnvelopeJSON> GetByID(int id)
         {
-            return this.servico.Selecionar(id);
+            try
+            {
+                EmpresaEnvelopeJSON lista = this.servico.Selecionar(id);
+                return Ok(lista);
+
+            }
+            catch (Exception ex)
+            {
+
+                return Problem(detail: ex.Message, statusCode: StatusCodes.Status500InternalServerError);
+            }
         }
 
+        /// <summary>
+        /// Realiza a Atualização ou alteração de registro.
+        /// </summary>
+        /// <param name="poco"></param>
+        /// <returns></returns>
         [HttpPost]
-        public EmpresaPoco Post([FromBody] EmpresaPoco poco)
+        public ActionResult<EmpresaEnvelopeJSON> Post([FromBody] EmpresaPoco poco)
         {
-            return this.servico.Criar(poco);
+            try
+            {
+                EmpresaEnvelopeJSON lista = this.servico.Criar(poco);
+                return Ok(lista);
+
+            }
+            catch (Exception ex)
+            {
+
+                return Problem(detail: ex.Message, statusCode: StatusCodes.Status500InternalServerError);
+            }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="poco"></param>
+        /// <returns></returns>
         [HttpPut]
-        public EmpresaPoco Put([FromBody] EmpresaPoco poco)
+        public ActionResult<EmpresaEnvelopeJSON> Put([FromBody] EmpresaPoco poco)
         {
-            return this.servico.Atualizar(poco);
+            try
+            {
+                EmpresaEnvelopeJSON lista = this.servico.Atualizar(poco);
+                return Ok(lista);
+
+            }
+            catch (Exception ex)
+            {
+
+                return Problem(detail: ex.Message, statusCode: StatusCodes.Status500InternalServerError);
+            }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="poco"></param>
+        /// <returns></returns>
         [HttpDelete]
-        public EmpresaPoco Delete([FromBody] EmpresaPoco poco)
+        public ActionResult<EmpresaEnvelopeJSON> Delete([FromBody] EmpresaPoco poco)
         {
-            return this.servico.Excluir(poco);
+            try
+            {
+                EmpresaEnvelopeJSON lista = this.servico.Excluir(poco);
+                return Ok(lista);
+
+            }
+            catch (Exception ex)
+            {
+
+                return Problem(detail: ex.Message, statusCode: StatusCodes.Status500InternalServerError);
+            }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id:int}")]
-        public EmpresaPoco Delete(int id)
+        public ActionResult<EmpresaEnvelopeJSON> Delete(int id)
         {
-            return this.servico.Excluir(id);
+            try
+            {
+                EmpresaEnvelopeJSON lista = this.servico.Excluir(id);
+                return Ok(lista);
+
+            }
+            catch (Exception ex)
+            {
+
+                return Problem(detail: ex.Message, statusCode: StatusCodes.Status500InternalServerError);
+            }
         }
 
     }

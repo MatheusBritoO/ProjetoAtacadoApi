@@ -1,13 +1,11 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Atacado.Mapper.Ancestral
 {
-    public class MapeadorGenerico<TPoco, TDom> where TPoco : class where TDom : class 
+    public class MapeadorGenericoEnvelopado<TPoco, TDom, TEnvelope>
+        where TPoco : class
+        where TDom : class
+        where TEnvelope : class
     {
         private IMapper mecanismo;
 
@@ -20,15 +18,20 @@ namespace Atacado.Mapper.Ancestral
                     var configuration = new MapperConfiguration(cfg =>
                     {
                         cfg.CreateMap<TDom, TPoco>();
-                        cfg.CreateMap<TPoco, TDom>();
+                        cfg.CreateMap<TDom, TEnvelope>();
 
+                        cfg.CreateMap<TPoco, TDom>();
+                        cfg.CreateMap<TPoco, TEnvelope>();
+
+                        cfg.CreateMap<TEnvelope, TDom>();
+                        cfg.CreateMap<TEnvelope, TPoco>();
                     });
                     this.mecanismo = configuration.CreateMapper();
                 }
                 return this.mecanismo;
             }
-        }       
-        public MapeadorGenerico()
+        }
+        public MapeadorGenericoEnvelopado()
         { }
     }
 }

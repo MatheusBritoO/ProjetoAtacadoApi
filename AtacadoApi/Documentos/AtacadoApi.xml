@@ -4,6 +4,57 @@
         <name>AtacadoApi</name>
     </assembly>
     <members>
+        <member name="M:AtacadoApi.Controllers.EmpresaController.GetAll(System.Int32,System.Int32)">
+            <summary>
+            Realiza a busca por todos os registros filtrando onde inicia(skip) e a quantidade(take).
+            </summary>
+            <param name="skip">Onde inicia os resultados da pesquisa.</param>
+            <param name="take">Quantos registros serão retornados.</param>
+            <returns>Coleção de dados.</returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.EmpresaController.Get(System.Int32,System.Int32)">
+            <summary>
+            Realiza a busca por todos os registros filtrando onde inicia(skip) e a quantidade(take).
+            </summary>
+            <param name="skip"></param>
+            <param name="take"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.EmpresaController.GetByID(System.Int32)">
+            <summary>
+            Realiza a busca por ID.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.EmpresaController.Post(Atacado.Poco.RH.EmpresaPoco)">
+            <summary>
+            Realiza a Atualização ou alteração de registro.
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.EmpresaController.Put(Atacado.Poco.RH.EmpresaPoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.EmpresaController.Delete(Atacado.Poco.RH.EmpresaPoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.EmpresaController.Delete(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:AtacadoApi.Controllers.FuncionarioController">
             <summary>
             Recurso Funcionário.

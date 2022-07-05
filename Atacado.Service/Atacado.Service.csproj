@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Atacado.Business\Atacado.Business.csproj" />
     <ProjectReference Include="..\Atacado.EF\Atacado.EF.csproj" />
+    <ProjectReference Include="..\Atacado.Envelope\Atacado.Envelope.csproj" />
     <ProjectReference Include="..\Atacado.Mapper\Atacado.Mapper.csproj" />
     <ProjectReference Include="..\Atacado.Poco\Atacado.Poco.csproj" />
     <ProjectReference Include="..\Atacado.Repository\Atacado.Repository.csproj" />

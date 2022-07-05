@@ -1,81 +1,86 @@
 ﻿using Atacado.EF.Database;
+using Atacado.Envelope.RH;
 using Atacado.Mapper.Ancestral;
 using Atacado.Poco.RH;
 using Atacado.Repository.RH;
 using Atacado.Service.Ancestral;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Atacado.Service.RH
 {
-    public class EmpresaService : BaseAncestralService<EmpresaPoco, Empresa>
+    public class EmpresaService : BaseEnvelopadaService<EmpresaPoco, Empresa, EmpresaEnvelopeJSON>
     {
 
         private EmpresaRepository repositorio;
        
         public EmpresaService() : base()
         {
-            this.mapeador = new MapeadorGenerico<EmpresaPoco, Empresa>();
+            this.mapeador = new MapeadorGenericoEnvelopado<EmpresaPoco, Empresa, EmpresaEnvelopeJSON>();
             this.repositorio = new EmpresaRepository(new AtacadoContext());
         }
 
-        public override List<EmpresaPoco> Listar()
+        public  List<EmpresaEnvelopeJSON> Listar()
         {
             List<Empresa> listDOM = this.repositorio.Read().ToList();
             return this.ProcessarListaDOM(listDOM);
         }
 
-        public List<EmpresaPoco> Listar(int pular, int exibir)
+        public List<EmpresaEnvelopeJSON> Listar(int pular, int exibir)
         {
             List<Empresa> listaDom = this.repositorio.Read(pular, exibir).ToList();
             return this.ProcessarListaDOM(listaDom);
         }
 
-        protected override List<EmpresaPoco> ProcessarListaDOM(List<Empresa> listDOM)
+        protected override List<EmpresaEnvelopeJSON> ProcessarListaDOM(List<Empresa> listDOM)
         {
-            return listDOM.Select(dom => this.mapeador.Mecanismo.Map<EmpresaPoco>(dom)).ToList();
+            List <EmpresaEnvelopeJSON> lista = listDOM.Select(dom => this.mapeador.Mecanismo.Map<EmpresaEnvelopeJSON>(dom)).ToList();
+            lista.ForEach(json => json.SetLinks());
+            return lista;
         }
 
-        public override EmpresaPoco Atualizar(EmpresaPoco obj)
+        public override EmpresaEnvelopeJSON Atualizar(EmpresaPoco obj)
         {
             Empresa temp = this.mapeador.Mecanismo.Map<Empresa>(obj);
             Empresa editado = this.repositorio.Edit(temp);
-            EmpresaPoco poco = this.mapeador.Mecanismo.Map<EmpresaPoco>(editado);
-            return poco;
+            EmpresaEnvelopeJSON json = this.mapeador.Mecanismo.Map<EmpresaEnvelopeJSON>(editado);
+            json.SetLinks();
+            return json;
+
+           // EmpresaPoco poco = this.mapeador.Mecanismo.Map<EmpresaPoco>(editado);
+           // return poco;
         }
 
-        public override EmpresaPoco Criar(EmpresaPoco obj)
+        public override EmpresaEnvelopeJSON Criar(EmpresaPoco obj)
         {
             Empresa temp = this.mapeador.Mecanismo.Map<Empresa>(obj);
             Empresa criado = this.repositorio.Add(temp);
-            EmpresaPoco poco = this.mapeador.Mecanismo.Map<EmpresaPoco>(criado);
-            return poco;
+            EmpresaEnvelopeJSON json = this.mapeador.Mecanismo.Map<EmpresaEnvelopeJSON>(criado);
+            json.SetLinks();
+            return json;
         }
 
-        public override EmpresaPoco Excluir(EmpresaPoco obj)
+        public override EmpresaEnvelopeJSON Excluir(EmpresaPoco obj)
         {
             Empresa temp = this.mapeador.Mecanismo.Map<Empresa>(obj);
-            Empresa criado = this.repositorio.Delete(temp);
-            EmpresaPoco poco = this.mapeador.Mecanismo.Map<EmpresaPoco>(criado);
-            return poco;
+            Empresa excluido = this.repositorio.Delete(temp);
+            EmpresaEnvelopeJSON json = this.mapeador.Mecanismo.Map<EmpresaEnvelopeJSON>(excluido);
+            json.SetLinks();
+            return json;
         }
 
-        public override EmpresaPoco Excluir(int id)
+        public override EmpresaEnvelopeJSON Excluir(int id)
         {
             Empresa excluido = this.repositorio.DeleteById(id);
-            EmpresaPoco poco = this.mapeador.Mecanismo.Map<EmpresaPoco>(excluido);
-            return poco;
+            EmpresaEnvelopeJSON json = this.mapeador.Mecanismo.Map<EmpresaEnvelopeJSON>(excluido);
+            json.SetLinks();
+            return json;
 
         }
 
-        public override EmpresaPoco Selecionar(int id)
+        public override EmpresaEnvelopeJSON Selecionar(int id)
         {
             Empresa selecionado = this.repositorio.Read(id);
-            EmpresaPoco poco = this.mapeador.Mecanismo.Map<EmpresaPoco>(selecionado);
-            return poco;
+            EmpresaEnvelopeJSON json = this.mapeador.Mecanismo.Map<EmpresaEnvelopeJSON>(selecionado);
+            json.SetLinks();
+            return json; ;
         }
     }
 }
