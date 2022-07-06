@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Atacado.EF.Database
 {
-    [Table("Unidades_Federacao")]
+    [Table("UnidadesFederacao")]
     [Index("SiglaUf", Name = "AK_UF", IsUnique = true)]
     public partial class UnidadesFederacao
     {
@@ -20,24 +20,31 @@ namespace Atacado.EF.Database
         }
 
         [Key]
-        [Column("ID_UF")]
+        [Column("ID_UnidadesFederacao")]
         public int IdUf { get; set; }
-        [Column("Descricao_UF")]
+
+        [Column("Descricao_UnidadesFederacao")]
         [Unicode(false)]
         public string DescricaoUf { get; set; } = null!;
-        [Column("Sigla_UF")]
+
+        [Column("SiglaUF")]
         [StringLength(2)]
         [Unicode(false)]
         public string SiglaUf { get; set; } = null!;
-        [Column("Regiao_Brasil")]
+
+        [Column("RegiaoBrasil")]
         [StringLength(20)]
         [Unicode(false)]
         public string? RegiaoBrasil { get; set; }
+        
         public bool? Situacao { get; set; }
+
         [Column(TypeName = "datetime")]
         public DateTime? DataInclusao { get; set; }
-        [Column(TypeName = "datetime")]
+
+        [Column("DataAlterecao", TypeName = "datetime")]
         public DateTime? DataAlteracao { get; set; }
+
         [Column(TypeName = "datetime")]
         public DateTime? DataExclusao { get; set; }
 

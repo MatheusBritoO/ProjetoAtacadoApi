@@ -176,5 +176,10 @@
             <param name="idMun">ID municipio a ser pesquisado</param>
             <returns>Coleção de dados.</returns>
         </member>
+        <member name="T:AtacadoApi.Controllers.RelatorioController">
+            <summary>
+            
+            </summary>
+        </member>
     </members>
 </doc>

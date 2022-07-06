@@ -17,7 +17,7 @@ namespace Atacado.EF.Database
         public string NomeMunicipio { get; set; } = null!;
         [Column("ID_UF")]
         public int IdUf { get; set; }
-        [Column("Sigla_UF")]
+        [Column("SiglaUF")]
         [StringLength(2)]
         [Unicode(false)]
         public string SiglaUf { get; set; } = null!;
