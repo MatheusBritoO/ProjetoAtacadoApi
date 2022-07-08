@@ -60,6 +60,10 @@ namespace Atacado.EF.Database
 
         public virtual DbSet<Empresa> Empresas { get; set; } = null!;
 
+        public virtual DbSet<Aquicultura> Aquiculturas { get; set; } = null!;
+
+        public virtual DbSet<TipoAquicultura> TipoAquiculturas { get; set; } = null!;
+
 
 
 
@@ -141,6 +145,7 @@ namespace Atacado.EF.Database
             //- Metadata2 - nome da tabela do banco.
             modelBuilder.Entity<Categoria>().ToTable("Categoria");
 
+           
 
             modelBuilder.Entity<Cliente>(entity =>
             {
@@ -472,7 +477,21 @@ namespace Atacado.EF.Database
             modelBuilder.Entity<Funcionario>().ToTable("Funcionario");
 
             modelBuilder.Entity<Funcionario>().ToTable("Empresa");
+            //
+            //
+            //
+                    
+            modelBuilder.Entity<Aquicultura>().ToTable("Aquicultura");
+            //
+            //
+            //
 
+            modelBuilder.Entity<TipoAquicultura>(entity =>
+            {
+                entity.Property(e => e.Situacao).HasDefaultValueSql("((1))");
+            });
+
+            modelBuilder.Entity<TipoAquicultura>().ToTable("Tipo_Aquicultura");
 
             OnModelCreatingPartial(modelBuilder);
         }

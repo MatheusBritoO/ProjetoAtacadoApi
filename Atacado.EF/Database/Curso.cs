@@ -12,14 +12,17 @@ namespace Atacado.EF.Database
         [Key]
         [Column("ID_Curso")]
         public int IdCurso { get; set; }
+        
         [Column("Descricao_Curso")]
         [Unicode(false)]
         public string? DescricaoCurso { get; set; }
         public bool? Situacao { get; set; }
+        
         [Column(TypeName = "datetime")]
         public DateTime? DataInclusao { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime? DataAlteracao { get; set; }
+        
         [Column(TypeName = "datetime")]
         public DateTime? DataExclusao { get; set; }
     }

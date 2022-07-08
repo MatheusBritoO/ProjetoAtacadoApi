@@ -1,5 +1,6 @@
 ﻿using Atacado.EF.Database;
 using Atacado.Poco.Estoque;
+using Atacado.Repository.Auxiliar;
 using Atacado.Repository.Estoque;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,9 @@ namespace Atacado.Service.Estoque
         private CategoriaRepository categoriaRepo;
         private SubcategoriaRepository subcategoriaRepo;
         private ProdutoRepository produtoRepo;
+        private AquiculturaRepository aquiRepo;
+        private TipoAquiculturaRepository tipoAquiRepo;
+        
     
     
         public RelatorioService()
@@ -22,7 +26,9 @@ namespace Atacado.Service.Estoque
             this.contexto = new AtacadoContext();
             this.categoriaRepo = new CategoriaRepository(this.contexto);
             this.subcategoriaRepo = new SubcategoriaRepository(this.contexto);
-            this.produtoRepo = new ProdutoRepository(this.contexto);         
+            this.produtoRepo = new ProdutoRepository(this.contexto);           
+            this.aquiRepo = new AquiculturaRepository(this.contexto);
+            this.tipoAquiRepo = new TipoAquiculturaRepository(this.contexto);
         }
     
         public List<RelatorioPoco> CategoriaPorID(int idCategoria)
@@ -84,6 +90,22 @@ namespace Atacado.Service.Estoque
                   }).ToList();
             return pesquisa;
         }
+
+
+        public List<RelatorioPoco> AquiculturaPorIdmunAno(int idMuns, int ano)
+        {
+            List<RelatorioPoco> pesquisa = (from aquis in this.contexto.Aquiculturas 
+                  join taquis in contexto.TipoAquiculturas on aquis.IdTipoAquicultura equals taquis.IdTipoAquicultura
+                  join muns in contexto.Municipios on aquis.IdMunicipio equals muns.IdMunicipio
+                  where (muns.IdMunicipio == idMuns) && (aquis.Ano == ano) && (aquis.Producao != null)
+                  select new RelatorioPoco()
+                  {
+                   IdAquicultura = aquis.IdAquicultura,
+                   IdTipoAquicultura = taquis.IdTipoAquicultura,                   
+                  }).ToList();
+            return pesquisa;
+        }
+
 
     }
 }

@@ -1,52 +1,34 @@
-﻿using Atacado.Envelope.RH;
-using Atacado.Poco.RH;
-using Atacado.Service.RH;
-using Microsoft.AspNetCore.Http;
+﻿using Atacado.Envelope.Auxiliar;
+using Atacado.Poco.Auxiliar;
+using Atacado.Service.Auxiliar;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AtacadoApi.Controllers
 {
-    [Route("api/rh/[controller]")]
+    [Route("api/auxiliar/[controller]")]
     [ApiController]
-    public class EmpresaController : ControllerBase
+    public class AquiculturaController : ControllerBase
     {
-        private EmpresaService servico;
+        private AquiculturaService servico;
 
-        public EmpresaController() : base()
+        public AquiculturaController() : base()
         {
-            this.servico = new EmpresaService();
+            this.servico = new AquiculturaService();
         }
 
-   
-        [HttpGet]
-        public ActionResult<List<EmpresaEnvelopeJSON>> GetAll(int skip, int take)
-        {
-            try
-            {
-               List<EmpresaEnvelopeJSON> lista = this.servico.Listar(skip, take);
-                return Ok(lista);
-               
-            }
-            catch (Exception ex)
-            {
 
-                return Problem(detail: ex.Message, statusCode: StatusCodes.Status500InternalServerError);
-            }
-        }
-
-  
         [HttpGet("{skip:int}/{take:int}")]
-        public ActionResult<List<EmpresaEnvelopeJSON>> Get(int skip, int take)
+        public ActionResult<List<AquiculturaEnvelopeJSON>> Get(int skip, int take)
         {
             return this.servico.Listar(skip, take);
         }
 
         [HttpGet("{id:int}")]
-        public ActionResult<EmpresaEnvelopeJSON> GetByID(int id)
+        public ActionResult<AquiculturaEnvelopeJSON> GetByID(int id)
         {
             try
             {
-                EmpresaEnvelopeJSON lista = this.servico.Selecionar(id);
+                AquiculturaEnvelopeJSON lista = this.servico.Selecionar(id);
                 return Ok(lista);
 
             }
@@ -58,11 +40,11 @@ namespace AtacadoApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<EmpresaEnvelopeJSON> Post([FromBody] EmpresaPoco poco)
+        public ActionResult<AquiculturaEnvelopeJSON> Post([FromBody] AquiculturaPoco poco)
         {
             try
             {
-                EmpresaEnvelopeJSON lista = this.servico.Criar(poco);
+                AquiculturaEnvelopeJSON lista = this.servico.Criar(poco);
                 return Ok(lista);
 
             }
@@ -73,13 +55,13 @@ namespace AtacadoApi.Controllers
             }
         }
 
-       
+
         [HttpPut]
-        public ActionResult<EmpresaEnvelopeJSON> Put([FromBody] EmpresaPoco poco)
+        public ActionResult<AquiculturaEnvelopeJSON> Put([FromBody] AquiculturaPoco poco)
         {
             try
             {
-                EmpresaEnvelopeJSON lista = this.servico.Atualizar(poco);
+                AquiculturaEnvelopeJSON lista = this.servico.Atualizar(poco);
                 return Ok(lista);
 
             }
@@ -90,13 +72,13 @@ namespace AtacadoApi.Controllers
             }
         }
 
-     
+
         [HttpDelete]
-        public ActionResult<EmpresaEnvelopeJSON> Delete([FromBody] EmpresaPoco poco)
+        public ActionResult<AquiculturaEnvelopeJSON> Delete([FromBody] AquiculturaPoco poco)
         {
             try
             {
-                EmpresaEnvelopeJSON lista = this.servico.Excluir(poco);
+                AquiculturaEnvelopeJSON lista = this.servico.Excluir(poco);
                 return Ok(lista);
 
             }
@@ -108,11 +90,11 @@ namespace AtacadoApi.Controllers
         }
 
         [HttpDelete("{id:int}")]
-        public ActionResult<EmpresaEnvelopeJSON> Delete(int id)
+        public ActionResult<AquiculturaEnvelopeJSON> Delete(int id)
         {
             try
             {
-                EmpresaEnvelopeJSON lista = this.servico.Excluir(id);
+                AquiculturaEnvelopeJSON lista = this.servico.Excluir(id);
                 return Ok(lista);
 
             }

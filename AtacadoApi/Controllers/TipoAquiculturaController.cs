@@ -1,31 +1,31 @@
-﻿using Atacado.Envelope.RH;
-using Atacado.Poco.RH;
-using Atacado.Service.RH;
+﻿using Atacado.Envelope.Auxiliar;
+using Atacado.Poco.Auxiliar;
+using Atacado.Service.Auxiliar;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AtacadoApi.Controllers
 {
-    [Route("api/rh/[controller]")]
+    [Route("api/auxiliar/[controller]")]
     [ApiController]
-    public class EmpresaController : ControllerBase
+    public class TipoAquiculturaController : ControllerBase
     {
-        private EmpresaService servico;
+        private TipoAquiculturaService servico;
 
-        public EmpresaController() : base()
+        public TipoAquiculturaController() : base()
         {
-            this.servico = new EmpresaService();
+            this.servico = new TipoAquiculturaService();
         }
 
-   
+
         [HttpGet]
-        public ActionResult<List<EmpresaEnvelopeJSON>> GetAll(int skip, int take)
+        public ActionResult<List<TipoAquiculturaEnvelopeJSON>> GetAll(int skip, int take)
         {
             try
             {
-               List<EmpresaEnvelopeJSON> lista = this.servico.Listar(skip, take);
+                List<TipoAquiculturaEnvelopeJSON> lista = this.servico.Listar(skip, take);
                 return Ok(lista);
-               
+
             }
             catch (Exception ex)
             {
@@ -34,19 +34,19 @@ namespace AtacadoApi.Controllers
             }
         }
 
-  
+
         [HttpGet("{skip:int}/{take:int}")]
-        public ActionResult<List<EmpresaEnvelopeJSON>> Get(int skip, int take)
+        public ActionResult<List<TipoAquiculturaEnvelopeJSON>> Get(int skip, int take)
         {
             return this.servico.Listar(skip, take);
         }
 
         [HttpGet("{id:int}")]
-        public ActionResult<EmpresaEnvelopeJSON> GetByID(int id)
+        public ActionResult<TipoAquiculturaEnvelopeJSON> GetByID(int id)
         {
             try
             {
-                EmpresaEnvelopeJSON lista = this.servico.Selecionar(id);
+                TipoAquiculturaEnvelopeJSON lista = this.servico.Selecionar(id);
                 return Ok(lista);
 
             }
@@ -58,11 +58,11 @@ namespace AtacadoApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<EmpresaEnvelopeJSON> Post([FromBody] EmpresaPoco poco)
+        public ActionResult<TipoAquiculturaEnvelopeJSON> Post([FromBody] TipoAquiculturaPoco poco)
         {
             try
             {
-                EmpresaEnvelopeJSON lista = this.servico.Criar(poco);
+                TipoAquiculturaEnvelopeJSON lista = this.servico.Criar(poco);
                 return Ok(lista);
 
             }
@@ -73,13 +73,13 @@ namespace AtacadoApi.Controllers
             }
         }
 
-       
+
         [HttpPut]
-        public ActionResult<EmpresaEnvelopeJSON> Put([FromBody] EmpresaPoco poco)
+        public ActionResult<TipoAquiculturaEnvelopeJSON> Put([FromBody] TipoAquiculturaPoco poco)
         {
             try
             {
-                EmpresaEnvelopeJSON lista = this.servico.Atualizar(poco);
+                TipoAquiculturaEnvelopeJSON lista = this.servico.Atualizar(poco);
                 return Ok(lista);
 
             }
@@ -90,13 +90,13 @@ namespace AtacadoApi.Controllers
             }
         }
 
-     
+
         [HttpDelete]
-        public ActionResult<EmpresaEnvelopeJSON> Delete([FromBody] EmpresaPoco poco)
+        public ActionResult<TipoAquiculturaEnvelopeJSON> Delete([FromBody] TipoAquiculturaPoco poco)
         {
             try
             {
-                EmpresaEnvelopeJSON lista = this.servico.Excluir(poco);
+                TipoAquiculturaEnvelopeJSON lista = this.servico.Excluir(poco);
                 return Ok(lista);
 
             }
@@ -108,11 +108,11 @@ namespace AtacadoApi.Controllers
         }
 
         [HttpDelete("{id:int}")]
-        public ActionResult<EmpresaEnvelopeJSON> Delete(int id)
+        public ActionResult<TipoAquiculturaEnvelopeJSON> Delete(int id)
         {
             try
             {
-                EmpresaEnvelopeJSON lista = this.servico.Excluir(id);
+                TipoAquiculturaEnvelopeJSON lista = this.servico.Excluir(id);
                 return Ok(lista);
 
             }
