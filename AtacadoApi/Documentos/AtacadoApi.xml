@@ -4,6 +4,49 @@
         <name>AtacadoApi</name>
     </assembly>
     <members>
+        <member name="M:AtacadoApi.Controllers.AquiculturaController.GetAll(System.Int32,System.Int32)">
+            <summary>
+            Busca pela empresa por todos os registros, filtrando onde inicia(skip) e a quantidade(take)
+            </summary>
+            <param name="skip">Onde inicia os resultados da pesquisa.</param>
+            <param name="take"> Quantos registros serão retornados.</param>
+            <returns>Coleção de dados.</returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.AquiculturaController.Get(System.Int32)">
+            <summary>
+            BUsca pelo Codigo(id).
+            </summary>
+            <param name="id">Codigo</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.AquiculturaController.Post(Atacado.Poco.Auxiliar.AquiculturaPoco)">
+            <summary>
+            Criar dados.
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.AquiculturaController.Put(Atacado.Poco.Auxiliar.AquiculturaPoco)">
+            <summary>
+            Atualizar dados.
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.AquiculturaController.Delete(Atacado.Poco.Auxiliar.AquiculturaPoco)">
+            <summary>
+            Deletar Relatorio.
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.AquiculturaController.Delete(System.Int32)">
+            <summary>
+            Deletar relatorio pelo codigo(id).
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:AtacadoApi.Controllers.FuncionarioController">
             <summary>
             Recurso Funcionário.
@@ -125,10 +168,70 @@
             <param name="idMun">ID municipio a ser pesquisado</param>
             <returns>Coleção de dados.</returns>
         </member>
+        <member name="M:AtacadoApi.Controllers.RelatorioAquiculturaController.GetRelatorioPorMunicipioIDeAno(System.Int32,System.Int32)">
+            <summary>
+            Busca um relatorio de Aquicultura por todos os registros, filtrando por ID municipio e por ano.
+            </summary>
+            <param name="IdMun">Identificacao do Municipio</param>
+            <param name="Ano">Ano de busca</param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.RelatorioAquiculturaController.GetRelatorioPorAquiculturaIDeAno(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Busca um relatorio de Aquicultura por todos os registros, filtrando Tipo Aquicultura, ano e Id Municipio.
+            </summary>
+            <param name="TipoA">Tipo de Aquicultura</param>
+            <param name="Ano">Ano de busca</param>
+            <param name="IdMun">Identificacao do Municipio</param>
+            <returns></returns>
+        </member>
         <member name="T:AtacadoApi.Controllers.RelatorioController">
             <summary>
             
             </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.TipoAquiculturaController.GetAll(System.Int32,System.Int32)">
+            <summary>
+            Busca pela empresa por todos os registros, filtrando onde inicia(skip) e a quantidade(take)
+            </summary>
+            <param name="skip">Onde inicia os resultados da pesquisa.</param>
+            <param name="take"> Quantos registros serão retornados.</param>
+            <returns>Coleção de dados.</returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.TipoAquiculturaController.Get(System.Int32)">
+            <summary>
+            Busca pelo codigo.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.TipoAquiculturaController.Post(Atacado.Poco.Auxiliar.TipoAquiculturaPoco)">
+            <summary>
+            Criar novo registro.
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.TipoAquiculturaController.Put(Atacado.Poco.Auxiliar.TipoAquiculturaPoco)">
+            <summary>
+            Atualizar Registro.
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.TipoAquiculturaController.Delete(Atacado.Poco.Auxiliar.TipoAquiculturaPoco)">
+            <summary>
+            Deletar todo o Relatorio .
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.TipoAquiculturaController.Delete(System.Int32)">
+            <summary>
+            Deletar por Codigo(id)
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

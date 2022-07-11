@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="IBGE\" />
-    <Folder Include="Relatorio\" />
   </ItemGroup>
 
   <ItemGroup>
