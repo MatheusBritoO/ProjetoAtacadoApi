@@ -1,4 +1,5 @@
-﻿using Atacado.Poco.Estoque;
+﻿using Atacado.EF.Database;
+using Atacado.Poco.Estoque;
 using Atacado.Service.Estoque;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,9 +12,9 @@ namespace AtacadoApi.Controllers
     {
         private ProdutoService servico;
 
-        public ProdutoController() : base()
+        public ProdutoController(AtacadoContext contexto) : base()
         {
-            this.servico = new ProdutoService();
+            this.servico = new ProdutoService(contexto);
         }
 
         [HttpGet("{skip:int}/{take:int}")]

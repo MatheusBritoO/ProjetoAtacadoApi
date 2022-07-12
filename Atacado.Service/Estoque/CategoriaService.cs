@@ -18,9 +18,9 @@ namespace Atacado.Service.Estoque
         private CategoriaRepository repositorio;
         private CategoriaMapper mapConfig;
 
-        public CategoriaService()
+        public CategoriaService(AtacadoContext contexto)
         {
-            this.repositorio = new CategoriaRepository(new AtacadoContext());
+            this.repositorio = new CategoriaRepository(contexto);
             this.mapConfig = new CategoriaMapper();
         }
 

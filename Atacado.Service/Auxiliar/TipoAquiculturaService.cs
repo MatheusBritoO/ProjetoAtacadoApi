@@ -12,10 +12,10 @@ namespace Atacado.Service.Auxiliar
     {
         private TipoAquiculturaRepository repositorio;
 
-        public TipoAquiculturaService() : base()
+        public TipoAquiculturaService(AtacadoContext contexto) : base()
         {
             this.mapeador = new MapeadorGenericoEnvelopado<TipoAquiculturaPoco, TipoAquicultura, TipoAquiculturaEnvelopeJSON>();
-            this.repositorio = new TipoAquiculturaRepository(new AtacadoContext());
+            this.repositorio = new TipoAquiculturaRepository(contexto);
         }
 
         public override TipoAquiculturaEnvelopeJSON Atualizar(TipoAquiculturaPoco obj)

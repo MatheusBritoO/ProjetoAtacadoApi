@@ -1,4 +1,5 @@
-﻿using Atacado.Poco.Auxiliar;
+﻿using Atacado.EF.Database;
+using Atacado.Poco.Auxiliar;
 using Atacado.Service.Auxiliar;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,9 +13,9 @@ namespace AtacadoApi.Controllers
         private TipoRebanhoService servico;
 
 
-        public TipoRebanhoController() : base()
+        public TipoRebanhoController(AtacadoContext contexto) : base()
         {
-            this.servico = new TipoRebanhoService();
+            this.servico = new TipoRebanhoService(contexto);
         }
 
         [HttpGet]

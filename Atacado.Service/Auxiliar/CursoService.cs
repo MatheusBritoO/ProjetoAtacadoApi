@@ -17,9 +17,9 @@ namespace Atacado.Service.Auxiliar
         private CursoRepository repositorio;
         
 
-        public CursoService()
+        public CursoService(AtacadoContext contexto)
         {
-            this.repositorio = new CursoRepository(new AtacadoContext());
+            this.repositorio = new CursoRepository(contexto);
             this.mapeador = new MapeadorGenerico<CursoPoco, Curso>();
         }
 

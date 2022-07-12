@@ -1,4 +1,5 @@
-﻿using Atacado.Poco.RH;
+﻿using Atacado.EF.Database;
+using Atacado.Poco.RH;
 using Atacado.Service.RH;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,9 +17,9 @@ namespace AtacadoApi.Controllers
         /// <summary>
         /// Construtor da classe.
         /// </summary>
-        public FuncionarioController() : base()
+        public FuncionarioController(AtacadoContext contexto) : base()
         {
-            this.servico = new FuncionarioService();
+            this.servico = new FuncionarioService(contexto);
         }
         /// <summary>
         /// Reazlida a busca por todos os registros filtrando onde inicia(skip) e a quantidade(take).

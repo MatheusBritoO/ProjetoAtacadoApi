@@ -1,4 +1,5 @@
-﻿using Atacado.Poco.Estoque;
+﻿using Atacado.EF.Database;
+using Atacado.Poco.Estoque;
 using Atacado.Service.Estoque;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,9 +13,9 @@ namespace AtacadoApi.Controllers
         private CategoriaService servico;
 
 
-        public CategoriaController() : base()
+        public CategoriaController(AtacadoContext contexto) : base()
         {
-            this.servico = new CategoriaService();
+            this.servico = new CategoriaService(contexto);
         }
 
         [HttpGet]

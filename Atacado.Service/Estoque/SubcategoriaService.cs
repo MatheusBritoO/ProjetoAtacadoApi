@@ -17,9 +17,9 @@ namespace Atacado.Service.Estoque
         private SubcategoriaRepository repositorio;
        
 
-        public SubcategoriaService()
+        public SubcategoriaService(AtacadoContext contexto)
         {
-            this.repositorio = new SubcategoriaRepository(new AtacadoContext());
+            this.repositorio = new SubcategoriaRepository(contexto);
             this.mapeador = new MapeadorGenerico<SubcategoriaPoco, Subcategoria>();
         }
 

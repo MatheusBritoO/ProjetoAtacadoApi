@@ -1,4 +1,5 @@
-﻿using Atacado.Poco.Estoque;
+﻿using Atacado.EF.Database;
+using Atacado.Poco.Estoque;
 using Atacado.Service.Estoque;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,9 +12,9 @@ namespace AtacadoApi.Controllers
     {
         private RelatorioService service;
 
-        public ReworkRelatorioController() : base()
+        public ReworkRelatorioController(AtacadoContext contexto) : base()
         {
-            this.service = new RelatorioService();
+            this.service = new RelatorioService(contexto);
         }
         
         [HttpGet("Categoria/PorID/{idCat:int}")]

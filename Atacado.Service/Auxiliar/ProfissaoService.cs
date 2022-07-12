@@ -17,9 +17,9 @@ namespace Atacado.Service.Auxiliar
         private ProfissaoRepository repositorio;
       
 
-        public ProfissaoService()
+        public ProfissaoService(AtacadoContext contexto)
         {
-            this.repositorio = new ProfissaoRepository(new AtacadoContext());
+            this.repositorio = new ProfissaoRepository(contexto);
             this.mapeador = new MapeadorGenerico<ProfissaoPoco, Profissao>();
         }
 

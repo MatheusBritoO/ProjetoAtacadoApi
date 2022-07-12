@@ -4,6 +4,17 @@
         <name>AtacadoApi</name>
     </assembly>
     <members>
+        <member name="T:AtacadoApi.Controllers.AquiculturaController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.AquiculturaController.#ctor(Atacado.EF.Database.AtacadoContext)">
+            <summary>
+            
+            </summary>
+            <param name="contexto"></param>
+        </member>
         <member name="M:AtacadoApi.Controllers.AquiculturaController.GetAll(System.Int32,System.Int32)">
             <summary>
             Busca pela empresa por todos os registros, filtrando onde inicia(skip) e a quantidade(take)
@@ -47,12 +58,116 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="T:AtacadoApi.Controllers.AreaConhecimentoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.AreaConhecimentoController.#ctor(Atacado.EF.Database.AtacadoContext)">
+            <summary>
+            
+            </summary>
+            <param name="contexto"></param>
+        </member>
+        <member name="M:AtacadoApi.Controllers.AreaConhecimentoController.GetAll">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.AreaConhecimentoController.GetByID(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.AreaConhecimentoController.Post(Atacado.Dal.Auxiliar.AreaConhecimentoPoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.AreaConhecimentoController.Put(Atacado.Dal.Auxiliar.AreaConhecimentoPoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.AreaConhecimentoController.Delete(Atacado.Dal.Auxiliar.AreaConhecimentoPoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.AreaConhecimentoController.Delete(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AtacadoApi.Controllers.CursoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CursoController.#ctor(Atacado.EF.Database.AtacadoContext)">
+            <summary>
+            
+            </summary>
+            <param name="contexto"></param>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CursoController.GetAll">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CursoController.GetByID(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CursoController.Post(Atacado.Dal.Auxiliar.CursoPoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CursoController.Put(Atacado.Dal.Auxiliar.CursoPoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CursoController.Delete(Atacado.Dal.Auxiliar.CursoPoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AtacadoApi.Controllers.CursoController.Delete(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:AtacadoApi.Controllers.FuncionarioController">
             <summary>
             Recurso Funcionário.
             </summary>
         </member>
-        <member name="M:AtacadoApi.Controllers.FuncionarioController.#ctor">
+        <member name="M:AtacadoApi.Controllers.FuncionarioController.#ctor(Atacado.EF.Database.AtacadoContext)">
             <summary>
             Construtor da classe.
             </summary>
@@ -112,7 +227,7 @@
             Recurso Rebanho.
             </summary>
         </member>
-        <member name="M:AtacadoApi.Controllers.RebanhoController.#ctor">
+        <member name="M:AtacadoApi.Controllers.RebanhoController.#ctor(Atacado.EF.Database.AtacadoContext)">
             <summary>
             Construtor da classe.
             </summary>

@@ -18,9 +18,9 @@ namespace Atacado.Service.Auxiliar
         private RebanhoRepository repositorio;
         
 
-        public RebanhoService()
+        public RebanhoService(AtacadoContext contexto)
         {
-            this.repositorio = new RebanhoRepository(new AtacadoContext());
+            this.repositorio = new RebanhoRepository(contexto);
             this.mapeador = new MapeadorGenerico<RebanhoPoco, Rebanho>();
         }
 

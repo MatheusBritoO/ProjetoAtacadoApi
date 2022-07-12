@@ -17,9 +17,9 @@ namespace Atacado.Service.Auxiliar
         private IdiomaRepository repositorio;
         
 
-        public IdiomaService()
+        public IdiomaService(AtacadoContext contexto)
         {
-            this.repositorio = new IdiomaRepository(new AtacadoContext());
+            this.repositorio = new IdiomaRepository(contexto);
             this.mapeador = new MapeadorGenerico<IdiomaPoco, Idioma>();
         }
 

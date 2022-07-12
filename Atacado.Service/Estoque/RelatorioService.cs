@@ -21,14 +21,12 @@ namespace Atacado.Service.Estoque
         
     
     
-        public RelatorioService()
+        public RelatorioService(AtacadoContext contexto)
         {
-            this.contexto = new AtacadoContext();
+            this.contexto = contexto;
             this.categoriaRepo = new CategoriaRepository(this.contexto);
             this.subcategoriaRepo = new SubcategoriaRepository(this.contexto);
             this.produtoRepo = new ProdutoRepository(this.contexto);           
-            this.aquiRepo = new AquiculturaRepository(this.contexto);
-            this.tipoAquiRepo = new TipoAquiculturaRepository(this.contexto);
         }
     
         public List<RelatorioPoco> CategoriaPorID(int idCategoria)
@@ -90,22 +88,6 @@ namespace Atacado.Service.Estoque
                   }).ToList();
             return pesquisa;
         }
-
-
-        public List<RelatorioPoco> AquiculturaPorIdmunAno(int idMuns, int ano)
-        {
-            List<RelatorioPoco> pesquisa = (from aquis in this.contexto.Aquiculturas 
-                  join taquis in contexto.TipoAquiculturas on aquis.IdTipoAquicultura equals taquis.IdTipoAquicultura
-                  join muns in contexto.Municipios on aquis.IdMunicipio equals muns.IdMunicipio
-                  where (muns.IdMunicipio == idMuns) && (aquis.Ano == ano) && (aquis.Producao != null)
-                  select new RelatorioPoco()
-                  {
-                   IdAquicultura = aquis.IdAquicultura,
-                   IdTipoAquicultura = taquis.IdTipoAquicultura,                   
-                  }).ToList();
-            return pesquisa;
-        }
-
 
     }
 }

@@ -14,10 +14,10 @@ namespace Atacado.Service.RH
         private FuncionarioRegra regra;
 
 
-        public FuncionarioService() : base()
+        public FuncionarioService(AtacadoContext contexto) : base()
         {
             this.mapeador = new MapeadorGenerico<FuncionarioPoco, Funcionario>();
-            this.repositorio = new FuncionarioRepository(new AtacadoContext());
+            this.repositorio = new FuncionarioRepository(contexto);
             this.regra = new FuncionarioRegra();
         }
 

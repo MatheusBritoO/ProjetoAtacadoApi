@@ -1,4 +1,5 @@
 ﻿using Atacado.Dal.Auxiliar;
+using Atacado.EF.Database;
 using Atacado.Service.Auxiliar;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,9 +13,9 @@ namespace AtacadoApi.Controllers
         private ProfissaoService servico;
 
 
-        public ProfissaoController() : base()
+        public ProfissaoController(AtacadoContext contexto) : base()
         {
-            this.servico = new ProfissaoService();
+            this.servico = new ProfissaoService(contexto);
         }
 
         [HttpGet]

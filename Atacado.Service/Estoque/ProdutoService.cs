@@ -17,9 +17,9 @@ namespace Atacado.Service.Estoque
         private ProdutoRepository repositorio;
         
 
-        public ProdutoService()
+        public ProdutoService(AtacadoContext contexto)
         {
-            this.repositorio = new ProdutoRepository(new AtacadoContext());
+            this.repositorio = new ProdutoRepository(contexto);
             this.mapeador = new MapeadorGenerico<ProdutoPoco, Produto>();
         }
 

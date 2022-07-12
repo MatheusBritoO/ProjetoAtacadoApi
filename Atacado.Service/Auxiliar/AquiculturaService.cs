@@ -17,6 +17,13 @@ namespace Atacado.Service.Auxiliar
             this.repositorio = new AquiculturaRepository(new AtacadoContext());
         }
 
+        public AquiculturaService(AtacadoContext contexto) : base()
+        {
+            this.mapeador = new MapeadorGenericoEnvelopado<AquiculturaPoco, Aquicultura, AquiculturaEnvelopeJSON>();
+            this.repositorio = new AquiculturaRepository(contexto);
+        }
+
+
         public override AquiculturaEnvelopeJSON Atualizar(AquiculturaPoco obj)
         {
             Aquicultura temp = this.mapeador.Mecanismo.Map<Aquicultura>(obj);

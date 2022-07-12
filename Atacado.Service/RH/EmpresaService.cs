@@ -11,10 +11,10 @@ namespace Atacado.Service.RH
 
         private EmpresaRepository repositorio;
        
-        public EmpresaService() : base()
+        public EmpresaService(AtacadoContext contexto) : base()
         {
             this.mapeador = new MapeadorGenericoEnvelopado<EmpresaPoco, Empresa, EmpresaEnvelopeJSON>();
-            this.repositorio = new EmpresaRepository(new AtacadoContext());
+            this.repositorio = new EmpresaRepository(contexto);
         }
 
         public  List<EmpresaEnvelopeJSON> Listar()

@@ -13,6 +13,11 @@ namespace Atacado.Service.Auxiliar
             this.contexto = new AtacadoContext();
         }
 
+        public RelatorioAquiculturaService(AtacadoContext contexto)
+        {
+            this.contexto = contexto;
+        }
+
         public List<RelatorioAquiculturaPoco> AquiculturaPorIDeAno(int IdMun, int AnoRef)
         {
             List<RelatorioAquiculturaPoco> pesquisa =
